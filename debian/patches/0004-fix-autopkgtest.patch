@@ -1,0 +1,37 @@
+From: Utkarsh Gupta <utkarsh@debian.org>
+Date: Sat, 6 Feb 2021 13:39:36 -0300
+Subject: Fix autopkgtest when --gem-install is uesed.
+
+Forwarded: not-needed
+Last-Update: 2020-04-01
+---
+ test/test_rake_file_task.rb        | 2 +-
+ test/test_rake_rake_test_loader.rb | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/test/test_rake_file_task.rb b/test/test_rake_file_task.rb
+index 61303d8..05c9bdb 100644
+--- a/test/test_rake_file_task.rb
++++ b/test/test_rake_file_task.rb
+@@ -192,7 +192,7 @@ class TestRakeFileTask < Rake::TestCase # :nodoc:
+   end
+ 
+   def load_phony
+-    load File.join(@rake_lib, "rake/phony.rb")
++    load "rake/phony.rb"
+   end
+ 
+ end
+diff --git a/test/test_rake_rake_test_loader.rb b/test/test_rake_rake_test_loader.rb
+index 4423a9b..d4f2bd8 100644
+--- a/test/test_rake_rake_test_loader.rb
++++ b/test/test_rake_rake_test_loader.rb
+@@ -6,7 +6,7 @@ class TestRakeRakeTestLoader < Rake::TestCase # :nodoc:
+   def setup
+     super
+ 
+-    @loader = File.join @rake_lib, "rake/rake_test_loader.rb"
++    @loader = "rake/rake_test_loader.rb"
+   end
+ 
+   def test_pattern

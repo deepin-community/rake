@@ -1,0 +1,40 @@
+Source: rake
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Team <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Antonio Terceiro <terceiro@debian.org>,
+           Paul van Tilburg <paulvt@debian.org>,
+           Caitlin Matos <caitlin.matos@zoho.com>,
+           Georg Faerber <georg@debian.org>,
+Build-Depends: debhelper-compat (= 12),
+               gem2deb,
+               ruby-bundler,
+               ruby-minitest
+Standards-Version: 4.5.0
+Vcs-Git: https://salsa.debian.org/ruby-team/rake.git
+Vcs-Browser: https://salsa.debian.org/ruby-team/rake
+Homepage: https://github.com/ruby/rake
+XS-Ruby-Versions: all
+Testsuite: autopkgtest-pkg-ruby
+
+Package: rake
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Multi-Arch: foreign
+Depends: ruby:any | ruby-interpreter,
+         ${misc:Depends},
+         ${shlibs:Depends}
+Recommends: zip
+Description: ruby make-like utility
+ Rake is a simple ruby build program with capabilities similar to make.
+ .
+ Rake has the following features:
+   * Rakefiles (rakes version of Makefiles) are completely defined in
+     standard Ruby syntax. No XML files to edit. No quirky Makefile
+     syntax to worry about (is that a tab or a space?)
+   * Users can specify tasks with prerequisites.
+   * Rake supports rule patterns to sythesize implicit tasks.
+   * Rake is lightweight. It can be distributed with other
+     projects as a single file. Projects that depend upon
+     rake do not require that rake be installed on target
+     systems.

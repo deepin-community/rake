@@ -1,0 +1,22 @@
+From: Antonio Terceiro <terceiro@debian.org>
+Date: Thu, 29 Jun 2017 10:07:13 -0300
+Subject: gemspec: drop git usage
+
+Last-Update: 2020-02-05 Georg Faerber <georg@debian.org>
+---
+ rake.gemspec | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/rake.gemspec b/rake.gemspec
+index 7532149..0a36c8c 100644
+--- a/rake.gemspec
++++ b/rake.gemspec
+@@ -30,7 +30,7 @@ Rake has the following features:
+     "source_code_uri"   => "https://github.com/ruby/rake/tree/v#{s.version}",
+   }
+ 
+-  s.files = %x[git ls-files -z].split("\x0").reject { |f| f.match(%r{^(test|spec|features|\.github)/}) } -
++  s.files = Dir['**/*'].reject { |f| File.directory?(f) || f.match(%r{^(debian|test|spec|features|\.github)/}) } -
+             %w[.rubocop.yml .gitignore .travis.yml appveyor.yml]
+   s.bindir = "exe"
+   s.executables = s.files.grep(%r{^exe/}) { |f| File.basename(f) }

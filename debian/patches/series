@@ -1,0 +1,3 @@
+0001-test-helper-adapt-to-test-installed-package.patch
+0003-gemspec-drop-git-usage.patch
+0004-fix-autopkgtest.patch
